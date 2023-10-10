@@ -1,0 +1,33 @@
+<div class="text-success">
+  <%= flash[:notice] %>
+</div>
+<div class="text-danger">
+  <%= flash[:alert] %>
+</div>
+
+<% if @book.errors.any? %>
+  <p class="error-title"><%= @book.errors.count %> errors occured:</p>
+  <ul class="errors-list">
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+<p>
+  <strong>Body:</strong>
+  <%= @book.body %>
+</p>
+
+
+<span>
+  <%= link_to 'Edit', edit_book_path(@book.id) %>
+</span>
+<span>|</span>
+<span>
+  <%= link_to 'Back', '/books' %>
+</span>
